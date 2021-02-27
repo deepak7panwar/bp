@@ -604,7 +604,7 @@ webpackEmptyAsyncContext.id = "./3/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-bar></app-nav-bar>\n<main class=\"container shadow p-5\">\n  <section>\n    <div class=\"row mb-4 no-gutters\">\n      <h1>Dashboard</h1>\n    </div>\n    <hr />\n    <div class=\"row m-0 border border-white\">\n      <app-price [title]=\"'Wallet Balance'\" [price]=\"metalBalance + cryptoBalance\"\n        class=\"col-sm-12 col-lg-6 p-2 p-md-4 bg-light border border-white d-flex flex-column align-items-center align-items-md-start\">\n      </app-price>\n      <app-price [title]=\"'Metal Balance'\" [price]=\"metalBalance\"\n        class=\"col-sm-12 col-lg-6 p-2 p-md-4 bg-light border border-white d-flex flex-column align-items-center align-items-md-start\">\n      </app-price>\n      <app-price [title]=\"'Crypto Balance'\" [price]=\"cryptoBalance\"\n        class=\"col-sm-12 col-lg-6 p-2 p-md-4 bg-light border border-white d-flex flex-column align-items-center align-items-md-start\">\n      </app-price>\n    </div>\n  </section>\n  <hr />\n\n  <section class=\"mt-5 mb-5\">\n    <h2>ASSET</h2>\n    <fieldset class=\"row no-gutters\">\n      <caption class=\"mr-2\">\n        Filter\n      </caption>\n      <div class=\"\">\n        <div class=\"btn-group btn-group-toggle\" ngbRadioGroup name=\"radioBasic\" [formControl]=\"filterCoins\">\n          <label ngbButtonLabel class=\"btn-primary\">\n            <i class=\"bi bi-wallet2 pr-2\"></i>\n            <input ngbButton type=\"radio\" [value]=\"filterState.ALL\" />\n            Show All\n          </label>\n          <label ngbButtonLabel class=\"btn-primary\">\n            <i class=\"bi bi-wallet pr-2\"></i>\n            <input ngbButton type=\"radio\" [value]=\"filterState.CRYPTO\" />\n            Crypto Wallet\n          </label>\n          <label ngbButtonLabel class=\"btn-primary\">\n            <i class=\"bi bi-wallet pr-2\"></i>\n            <input ngbButton type=\"radio\" [value]=\"filterState.METAL\" />\n            Metal Wallet\n          </label>\n        </div>\n      </div>\n    </fieldset>\n    <div class=\"row mt-5\">\n      <ng-container *ngIf=\"showCrypto$ | async\">\n        <app-wallet *ngIf=\"cryptoService$ | async as crypto\" class=\"col-12 col-md-12 col-lg\" [title]=\"'Crypto Wallet'\"\n          [asset]=\"crypto\">\n        </app-wallet>\n      </ng-container>\n      <ng-container *ngIf=\"showMetal$ | async\">\n        <app-wallet *ngIf=\"metalService$ | async as metal\" class=\"col-12 col-md-12 col-lg\" [title]=\"'Metal Wallet'\"\n          [asset]=\"metal\">\n        </app-wallet>\n      </ng-container>\n    </div>\n  </section>\n  <hr />\n</main>"
+module.exports = "<app-nav-bar [socialLinks]=\"socialLinks\"></app-nav-bar>\n<main class=\"container shadow p-5\">\n  <section>\n    <div class=\"row mb-4 no-gutters\">\n      <h1>Dashboard</h1>\n    </div>\n    <hr />\n    <div class=\"row m-0 border border-white\">\n      <app-price [title]=\"'Wallet Balance'\" [price]=\"metalBalance + cryptoBalance\"\n        class=\"col-sm-12 col-lg-6 p-2 p-md-4 bg-light border border-white d-flex flex-column align-items-center align-items-md-start\">\n      </app-price>\n      <app-price [title]=\"'Metal Balance'\" [price]=\"metalBalance\"\n        class=\"col-sm-12 col-lg-6 p-2 p-md-4 bg-light border border-white d-flex flex-column align-items-center align-items-md-start\">\n      </app-price>\n      <app-price [title]=\"'Crypto Balance'\" [price]=\"cryptoBalance\"\n        class=\"col-sm-12 col-lg-6 p-2 p-md-4 bg-light border border-white d-flex flex-column align-items-center align-items-md-start\">\n      </app-price>\n    </div>\n  </section>\n  <hr />\n\n  <section class=\"mt-5 mb-5\">\n    <h2>ASSET</h2>\n    <fieldset class=\"row no-gutters\">\n      <caption class=\"mr-2\">\n        Filter\n      </caption>\n      <div class=\"\">\n        <div class=\"btn-group btn-group-toggle\" ngbRadioGroup name=\"radioBasic\" [formControl]=\"filterCoins\">\n          <label ngbButtonLabel class=\"btn-primary\">\n            <i class=\"bi bi-wallet2 pr-2\"></i>\n            <input ngbButton type=\"radio\" [value]=\"filterState.ALL\" />\n            Show All\n          </label>\n          <label ngbButtonLabel class=\"btn-primary\">\n            <i class=\"bi bi-wallet pr-2\"></i>\n            <input ngbButton type=\"radio\" [value]=\"filterState.CRYPTO\" />\n            Crypto Wallet\n          </label>\n          <label ngbButtonLabel class=\"btn-primary\">\n            <i class=\"bi bi-wallet pr-2\"></i>\n            <input ngbButton type=\"radio\" [value]=\"filterState.METAL\" />\n            Metal Wallet\n          </label>\n        </div>\n      </div>\n    </fieldset>\n    <div class=\"row mt-5\">\n      <ng-container *ngIf=\"showCrypto$ | async\">\n        <app-wallet *ngIf=\"cryptoService$ | async as crypto\" class=\"col-12 col-md-12 col-lg\" [title]=\"'Crypto Wallet'\"\n          [asset]=\"crypto\">\n        </app-wallet>\n      </ng-container>\n      <ng-container *ngIf=\"showMetal$ | async\">\n        <app-wallet *ngIf=\"metalService$ | async as metal\" class=\"col-12 col-md-12 col-lg\" [title]=\"'Metal Wallet'\"\n          [asset]=\"metal\">\n        </app-wallet>\n      </ng-container>\n    </div>\n  </section>\n  <hr />\n</main>"
 
 /***/ }),
 
@@ -658,13 +658,25 @@ var FilterState;
     FilterState["CRYPTO"] = "crypto";
     FilterState["METAL"] = "metal";
 })(FilterState || (FilterState = {}));
+var links = [
+    {
+        url: "https://github.com/deepak7panwar",
+        icon: "bi-github",
+        title: "Open deepak panwars GitHub",
+    },
+    {
+        url: "https://www.linkedin.com/in/deepak7panwar/",
+        icon: "bi-linkedin",
+        title: "open deepak panwars likedin",
+    },
+];
 var AppComponent = /** @class */ (function () {
-    function AppComponent(formBuilder) {
+    function AppComponent() {
         var _this = this;
-        this.formBuilder = formBuilder;
         // todo: if you want (would be appreciated) you can use the serives from the second task instead
         //   public coins: Cryptocoin[] = [];
         //   public metals: Metal[] = [];
+        this.socialLinks = links;
         this.filterState = FilterState;
         this.crytoWallet = new _1_model_crypto_wallet__WEBPACK_IMPORTED_MODULE_9__["CryptoWallet"]();
         this.metalWallet = new _1_model_metal_wallet__WEBPACK_IMPORTED_MODULE_10__["MetalWallet"]();
@@ -707,7 +719,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./3/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.scss */ "./3/app.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -857,7 +869,7 @@ var CurrencyCardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand navbar-dark px-4 flex-column flex-md-row\">\n  <a routerlink=\"/\" aria-label=\"Coin\" class=\"navbar-brand mr-md-2 mr-0\" href=\"/\"><span\n      class=\"ml-2 d-xl-none d-lg-none d-md-none d-inline\">ng-bootstrap</span></a>\n  <div class=\"navbar-nav-scroll\">\n    <ul class=\"navbar-nav flex-row\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#/\">Home</a>\n      </li>\n    </ul>\n  </div>\n  <ul class=\"navbar-nav flex-row ml-md-auto d-none d-md-flex align-items-center\">\n    <li class=\"ml-3\">\n      <a style=\"color: white;\" href=\"https://github.com/deepak7panwar\" rel=\"nofollow noopener noreferrer\"\n        target=\"_blank\" title=\"Open deepak panwars GitHub\">\n        <i class=\"bi bi-github\"></i>\n      </a>\n    </li>\n    <li class=\"ml-3\">\n      <a style=\"color: white;\" href=\"https://www.linkedin.com/in/deepak7panwar/\" rel=\"nofollow noopener noreferrer\"\n        target=\"_blank\" title=\"open deepak panwars likedin\">\n        <i class=\"bi bi-linkedin\"></i>\n      </a>\n    </li>\n\n  </ul>\n  <button type=\"button\" aria-controls=\"navbarContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"\n    class=\"navbar-toggler navbar-toggler-right\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand navbar-dark px-4 flex-column flex-md-row\">\n  <a routerlink=\"/\" aria-label=\"Coin\" class=\"navbar-brand mr-md-2 mr-0\" href=\"/\"><span\n      class=\"ml-2 d-xl-none d-lg-none d-md-none d-inline\">ng-bootstrap</span></a>\n  <div class=\"navbar-nav-scroll\">\n    <ul class=\"navbar-nav flex-row\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#/\">Home</a>\n      </li>\n    </ul>\n  </div>\n  <ul class=\"navbar-nav flex-row ml-md-auto d-none d-md-flex align-items-center\">\n    <li *ngFor=\"let link of socialLinks\" class=\"ml-3\">\n      <a style=\"color: white;\" [href]=\"link.url\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\n        [title]=\"link.title\">\n        <i class=\"bi\" [ngClass]=\"link.icon\"></i>\n      </a>\n    </li>\n  </ul>\n  <button type=\"button\" aria-controls=\"navbarContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"\n    class=\"navbar-toggler navbar-toggler-right\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n</nav>"
 
 /***/ }),
 
@@ -889,11 +901,14 @@ __webpack_require__.r(__webpack_exports__);
 var NavBarComponent = /** @class */ (function () {
     function NavBarComponent() {
     }
-    NavBarComponent.prototype.ngOnInit = function () {
-    };
+    NavBarComponent.prototype.ngOnInit = function () { };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], NavBarComponent.prototype, "socialLinks", void 0);
     NavBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-nav-bar',
+            selector: "app-nav-bar",
             template: __webpack_require__(/*! ./nav-bar.component.html */ "./3/components/nav-bar/nav-bar.component.html"),
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
             styles: [__webpack_require__(/*! ./nav-bar.component.scss */ "./3/components/nav-bar/nav-bar.component.scss")]
